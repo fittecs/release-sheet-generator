@@ -1,0 +1,30 @@
+{
+  "name": "release-sheet-generator",
+  "version": "1.0.0",
+  "description": "release-sheet-generator",
+  "main": "dist/index.js",
+  "dependencies": {
+    "@slack/web-api": "^5.7.0",
+    "@typescript-eslint/eslint-plugin": "^2.19.2",
+    "@typescript-eslint/parser": "^2.19.2",
+    "date-time": "^3.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "googleapis": "^47.0.0",
+    "octonode": "^0.9.5",
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.5"
+  },
+  "scripts": {
+    "clean": "npx rimraf dist",
+    "build": "tsc",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "format": "prettier --check src/**/*.ts",
+    "format:write": "prettier --write src/**/*.ts",
+    "validate": "npm run lint && npm run format",
+    "exec": "npm run build && node dist/index.js",
+    "all": "npm run clean && npm i && npm run validate && npm run exec"
+  }
+}
